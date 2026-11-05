@@ -1,0 +1,13 @@
+//
+// Created by Pei on 05/11/2026.
+//
+
+#ifndef ACTIVIDADCOLABORATIVA3PEL_SERIA_H
+#define ACTIVIDADCOLABORATIVA3PEL_SERIA_H
+
+
+class Serie {
+};
+
+
+#endif //ACTIVIDADCOLABORATIVA3PEL_SERIA_H

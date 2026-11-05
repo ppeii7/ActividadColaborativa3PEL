@@ -1,0 +1,13 @@
+//
+// Created by Pei on 05/11/2026.
+//
+
+#ifndef ACTIVIDADCOLABORATIVA3PEL_ALBUM_H
+#define ACTIVIDADCOLABORATIVA3PEL_ALBUM_H
+
+
+class Album {
+};
+
+
+#endif //ACTIVIDADCOLABORATIVA3PEL_ALBUM_H
