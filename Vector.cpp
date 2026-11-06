@@ -50,7 +50,7 @@ T& Vector<T>::at(size_t index) {
 }
 
 template<typename T>
-void Vector<T>::push_back(T e) {
+void Vector<T>::push_back(T x) {
     if (v_ == nullptr) {
         v_ = new T[2] ;
         space_ = v_ ;
@@ -66,16 +66,15 @@ void Vector<T>::push_back(T e) {
         v_ = aux ;
         space_ = v_+cap ;
         last_ =  v_+newCap;
-    } else {
-        space_ += 1 ;
     }
-    v_[vector_size()] = e ;
+    v_[int(vector_size())] = x ;
+    space_+=1;
 }
 
 template<typename T>
 std::string Vector<T>::toStringVector() {
     std::string s = "" ;
-    for (int i = 0 ; i <= vector_size() ; i++) {
+    for (int i = 0 ; i < vector_size() ; i++) {
         s += v_[i] + " " ;
     }
     return s ;
