@@ -6,8 +6,15 @@
 #define ACTIVIDADCOLABORATIVA3PEL_PELICULA_H
 
 
-class Pelicula {
-};
 
+#include "Titulo.h"
+
+class Pelicula : public Titulo {
+private:
+    int duracion;
+public:
+    Pelicula(std::string& titulo, std::string& genero, std::string& calidad, bool estandar, float precio, int duracion);
+    void mostrar() const override;
+};
 
 #endif //ACTIVIDADCOLABORATIVA3PEL_PELICULA_H
