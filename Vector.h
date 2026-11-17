@@ -5,6 +5,7 @@
 #ifndef ACTIVIDADCOLABORATIVA3PEL_VECTOR_H
 #define ACTIVIDADCOLABORATIVA3PEL_VECTOR_H
 #include <cstddef>
+#include <string>
 
 
 template <typename T>

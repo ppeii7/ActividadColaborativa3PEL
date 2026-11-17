@@ -18,29 +18,29 @@ void Album::agregarCancion(std::string cancion) {
 bool Album::tieneCancion(std::string cancion) {
     bool tiene = false;
     for (int i = 0; i < canciones.vector_size(); i++) {
-        if (canciones.at(i) == cancion) {
+        if (canciones[i] == cancion) {
             tiene = true;
         }
     }
     return tiene;
 }
 
-std::string Album::getTitulo() {
-    return this->titulo;
+bool Album::esTitulo(const std::string t) {
+    return this->titulo == t;
 }
 
-std::string Album::getGrupo() {
-    return this->grupo;
+bool Album::esDelGrupo(const std::string g) {
+    return this->grupo == g;
 }
 
-std::string Album::getGenero() {
-    return this->genero;
+bool Album::esDelGenero(const std::string g) {
+    return this->genero == g;
 }
 
 std::string Album::getCancion(std::size_t index) {
-    return canciones.at(index-1);
+    return canciones[index-1];
 }
 
 std::string Album::toStringAlbum() {
-    return "Titulo: " + this->getTitulo() + "\n Grupo: " + this->getGrupo() + " Genero: " + this->getGenero() + "\n Canciones: " + canciones.toStringVector();
+    return "Titulo: " + titulo + "\n Grupo: " + grupo + " Genero: " + genero + "\n Canciones: " + canciones.toStringVector();
 }
