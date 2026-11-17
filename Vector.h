@@ -16,6 +16,7 @@ private:
     T* last;
 public:
 
+
     Vector();
     ~Vector();
     std::size_t vector_size();
@@ -24,6 +25,6 @@ public:
     T& end();
     void push_back(T& nuevo);
     T& operator[](std::size_t indice);
-
+    std::string toStringVector();
 };
 #endif //ACTIVIDADCOLABORATIVA3PEL_VECTOR_H

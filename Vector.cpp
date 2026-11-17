@@ -1,14 +1,16 @@
 //
-// Created by Pei on 05/11/2026.
+// Created by jadel on 03/11/2026.
 //
 
 #include "Vector.h"
+#include <iostream>
 
-template <typename T>
+template<typename T>
 Vector<T>::Vector() {
-    v = nullptr;
-    space = nullptr;
-    last = nullptr;
+    v_ = nullptr;
+    space_ = nullptr;
+    last_ = nullptr;
+
 }
 
 template <typename T>
@@ -63,4 +65,13 @@ void Vector<T>:: push_back(T& nuevo) {
 template <typename T>
 T& Vector<T>:: operator[](size_t indice) {
     return v[indice];
+}
+
+template<typename T>
+std::string Vector<T>::toStringVector() {
+    std::string s = "" ;
+    for (int i = 0 ; i < vector_size() ; i++) {
+        s += v_[i] + " " ;
+    }
+    return s ;
 }
