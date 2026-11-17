@@ -17,11 +17,13 @@ private:
 public:
 
     Vector();
+    ~Vector();
     std::size_t vector_size();
     std::size_t vector_capacity();
-    T begin();
-    T end();
-    void push_back(T nuevo);
+    T& begin();
+    T& end();
+    void push_back(T& nuevo);
+    T& operator[](std::size_t indice);
 
 };
 #endif //ACTIVIDADCOLABORATIVA3PEL_VECTOR_H
