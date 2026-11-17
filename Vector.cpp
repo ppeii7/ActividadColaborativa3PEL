@@ -7,9 +7,9 @@
 
 template<typename T>
 Vector<T>::Vector() {
-    v_ = nullptr;
-    space_ = nullptr;
-    last_ = nullptr;
+    v = nullptr;
+    space = nullptr;
+    last = nullptr;
 
 }
 
@@ -71,7 +71,7 @@ template<typename T>
 std::string Vector<T>::toStringVector() {
     std::string s = "" ;
     for (int i = 0 ; i < vector_size() ; i++) {
-        s += v_[i] + " " ;
+        s += v[i] + " " ;
     }
     return s ;
 }
