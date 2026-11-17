@@ -5,30 +5,26 @@
 #ifndef ACTIVIDADCOLABORATIVA3PEL_VECTOR_H
 #define ACTIVIDADCOLABORATIVA3PEL_VECTOR_H
 #include <cstddef>
-#include <iostream>
+
 
 template <typename T>
-class Vector {
+class Vector{
 
 private:
-    T* v_;
-    T* space_;
-    T* last_;
-
+    T* v;
+    T* space;
+    T* last;
 public:
+
 
     Vector();
     ~Vector();
-    Vector(std::size_t cap);
-    int vector_size();
-    int vector_capacity();
-    T* begin();
-    T* end_();
-    T& at(std::size_t index);
-    void push_back(T e);
+    std::size_t vector_size();
+    std::size_t vector_capacity();
+    T& begin();
+    T& end();
+    void push_back(T& nuevo);
+    T& operator[](std::size_t indice);
     std::string toStringVector();
-
 };
-
-
 #endif //ACTIVIDADCOLABORATIVA3PEL_VECTOR_H
