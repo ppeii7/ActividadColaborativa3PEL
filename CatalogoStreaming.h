@@ -19,10 +19,10 @@ public:
 
     void cargarBiblioteca();
     void agregarTitulo(Titulo* t);
-    void buscarPorTitulo(const std::string& titulo);
-    void buscarPorGenero(const std::string& genero);
-    void buscarPorCalidad(const std::string& calidad);
-    void alquilar(const std::string& titulo);
+    void buscarPorTitulo(std::string titulo);
+    void buscarPorGenero(std::string genero);
+    void buscarPorCalidad(std::string calidad);
+    void alquilar(std::string titulo);
 };
 
 #endif //ACTIVIDADCOLABORATIVA3PEL_CATALOGOSTREAMING_H
