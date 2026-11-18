@@ -4,7 +4,6 @@
 
 #ifndef ACTIVIDADCOLABORATIVA3PEL_SERIE_H
 #define ACTIVIDADCOLABORATIVA3PEL_SERIE_H
-#include <iostream>
 
 #include "Titulo.h"
 
@@ -15,4 +14,4 @@ public:
     Serie(std::string& titulo, std::string& genero, std::string& calidad, bool estandar, float precio, int temporadas);
     void mostrar() const override;
 };
-#endif //ACTIVIDADCOLABORATIVA3PEL_SERIA_H
+#endif //ACTIVIDADCOLABORATIVA3PEL_SERIE_H

@@ -10,7 +10,6 @@ CatalogoMusica::~CatalogoMusica() {
     }
 }
 
-// cargarBiblioteca() queda igual
 void CatalogoMusica::cargarBiblioteca() {
     // Álbum 1: Rock Clásico
     Album* album1 = new Album("Abbey Road", "The Beatles", "Rock");
@@ -40,6 +39,18 @@ void CatalogoMusica::cargarBiblioteca() {
     album4->agregarCancion("In Bloom");
     album4->agregarCancion("Come As You Are");
     this->agregarAlbum(album4);
+
+    Album* album5 = new Album("Let It Be", "The Beatles", "Rock");
+    album5->agregarCancion("Let It Be");
+    album5->agregarCancion("Get Back");
+    album5->agregarCancion("Across The Universe");
+    this->agregarAlbum(album5);
+
+    Album* album6 = new Album("Bad", "Michael Jackson", "Pop");
+    album6->agregarCancion("Bad");
+    album6->agregarCancion("Smooth Criminal");
+    album6->agregarCancion("Man In The Mirror");
+    this->agregarAlbum(album6);
 }
 
 void CatalogoMusica::agregarAlbum(Album* album) {
