@@ -40,12 +40,8 @@ bool Dinarray<T>::is_empty(){
 }
 
 template <typename T>
-T Dinarray<T>::at(int index){
-    if (index < 0 || static_cast<std::size_t>(index) >= this->size){
-        std::cout << "ERROR AT DINARRAY" << std::endl;
-        return T();
-    }
-    return this->data[index];
+T& Dinarray<T>:: operator[](size_t indice) {
+    return data[indice];
 }
 
 template <typename T>

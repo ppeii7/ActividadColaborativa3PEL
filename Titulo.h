@@ -21,7 +21,7 @@ protected:
 
 public:
     Titulo(std::string& titulo,std::string& genero,std::string& calidad, bool estandar, float precio);
-    ~Titulo();
+    virtual ~Titulo();
 
     bool coincideTitulo(const std::string& t);
     bool coincideGenero(const std::string& g);

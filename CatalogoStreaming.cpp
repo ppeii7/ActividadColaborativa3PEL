@@ -14,13 +14,7 @@ CatalogoStreaming::CatalogoStreaming() {
 
 CatalogoStreaming::~CatalogoStreaming() {
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
-        Titulo* t = titulos.at(i);
-        Pelicula* p = dynamic_cast<Pelicula*>(t);
-        if (p != nullptr) {
-            delete p;
-        } else {
-            delete dynamic_cast<Serie*>(t);
-        }
+        delete titulos[i];
     }
 }
 
@@ -56,8 +50,8 @@ void CatalogoStreaming::cargarBiblioteca() {
 void CatalogoStreaming::buscarPorTitulo(string titulo) {
     bool encontrado = false;
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
-        if (titulos.at(i)->coincideTitulo(titulo)) {
-            titulos.at(i)->mostrar();
+        if (titulos[i]->coincideTitulo(titulo)) {
+            titulos[i]->mostrar();
             encontrado = true;
         }
     }
@@ -69,8 +63,8 @@ void CatalogoStreaming::buscarPorTitulo(string titulo) {
 void CatalogoStreaming::buscarPorGenero(string genero) {
     bool encontrado = false;
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
-        if (titulos.at(i)->coincideGenero(genero)) {
-            titulos.at(i)->mostrar();
+        if (titulos[i]->coincideGenero(genero)) {
+            titulos[i]->mostrar();
             encontrado = true;
         }
     }
@@ -82,8 +76,8 @@ void CatalogoStreaming::buscarPorGenero(string genero) {
 void CatalogoStreaming::buscarPorCalidad(string calidad) {
     bool encontrado = false;
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
-        if (titulos.at(i)->coincideCalidad(calidad)) {
-            titulos.at(i)->mostrar();
+        if (titulos[i]->coincideCalidad(calidad)) {
+            titulos[i]->mostrar();
             encontrado = true;
         }
     }
@@ -93,15 +87,18 @@ void CatalogoStreaming::buscarPorCalidad(string calidad) {
 }
 
 void CatalogoStreaming::alquilar(string titulo) {
-    for (std::size_t i = 0; i < titulos.array_size(); i++) {
-        if (titulos.at(i)->coincideTitulo(titulo)) {
-            if (titulos.at(i)->alquilar()) {
+    bool encontrado = false;
+    for (std::size_t i = 0; i < titulos.array_size() && !encontrado; i++) {
+        if (titulos[i]->coincideTitulo(titulo)) {
+            encontrado = true;
+            if (titulos[i]->alquilar()) {
                 cout << "\"" << titulo << "\" alquilado. Ahora esta disponible." << endl;
             } else {
                 cout << "\"" << titulo << "\" ya estaba disponible." << endl;
             }
-            return;
         }
     }
-    cout << "No se ha podido encontrar el titulo: " << titulo << endl;
+    if (!encontrado) {
+        cout << "No se ha podido encontrar el titulo: " << titulo << endl;
+    }
 }

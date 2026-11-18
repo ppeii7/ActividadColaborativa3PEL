@@ -21,13 +21,12 @@ public:
     ~Dinarray();
     std::size_t array_size();
     bool is_empty();
-    T at(int index);
+    T& operator[](std::size_t indice);
     void redimension(std::size_t newSize);
     void insert(T e, int index);
     T eliminar (int index);
     void printDinarray();
 };
 
-#include "Dinarray.cpp"
 
 #endif //ACTIVIDADCOLABORATIVA3PEL_DINARRAY_H

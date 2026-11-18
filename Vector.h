@@ -24,7 +24,7 @@ public:
     std::size_t vector_capacity();
     T& begin();
     T& end();
-    void push_back(T& nuevo);
+    void push_back(const T& nuevo);
     T& operator[](std::size_t indice);
     std::string toStringVector();
 };

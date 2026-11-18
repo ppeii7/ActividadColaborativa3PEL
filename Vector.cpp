@@ -5,6 +5,7 @@
 #include "Vector.h"
 #include <iostream>
 
+
 template<typename T>
 Vector<T>::Vector() {
     v = nullptr;
@@ -39,7 +40,7 @@ T& Vector<T>::end() {
 }
 
 template <typename T>
-void Vector<T>:: push_back(T& nuevo) {
+void Vector<T>:: push_back(const T& nuevo) {
 
     if (space == last) {
         if (last != nullptr) {

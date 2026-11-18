@@ -4,8 +4,6 @@
 
 #include "Pelicula.h"
 
-// Pelicula.cpp
-#include "Pelicula.h"
 #include <iostream>
 
 Pelicula::Pelicula(std::string& t, std::string& g, std::string& c, bool e, float p, int d)

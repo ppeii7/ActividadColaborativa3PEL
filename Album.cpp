@@ -8,7 +8,6 @@ Album::Album(std::string titulo, std::string grupo, std::string genero) {
     this->titulo = titulo;
     this->grupo = grupo;
     this->genero = genero;
-    numCanciones = 0;
 }
 
 void Album::agregarCancion(std::string cancion) {
@@ -37,9 +36,6 @@ bool Album::esDelGenero(const std::string g) {
     return this->genero == g;
 }
 
-std::string Album::getCancion(std::size_t index) {
-    return canciones[index-1];
-}
 
 std::string Album::toStringAlbum() {
     return "Titulo: " + titulo + "\n Grupo: " + grupo + " Genero: " + genero + "\n Canciones: " + canciones.toStringVector();

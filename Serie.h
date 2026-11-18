@@ -2,9 +2,8 @@
 // Created by Pei on 05/11/2026.
 //
 
-#ifndef ACTIVIDADCOLABORATIVA3PEL_SERIA_H
-#define ACTIVIDADCOLABORATIVA3PEL_SERIA_H
-#include "Serie.h"
+#ifndef ACTIVIDADCOLABORATIVA3PEL_SERIE_H
+#define ACTIVIDADCOLABORATIVA3PEL_SERIE_H
 #include <iostream>
 
 #include "Titulo.h"

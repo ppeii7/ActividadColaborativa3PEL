@@ -11,7 +11,7 @@ Serie::Serie(std::string& t, std::string& g, std::string& c, bool e, float p, in
     : ::Titulo(t, g, c, e, p), temporadas(d) {}
 
 void Serie::mostrar() const {
-    std::cout << "[Pelicula] ";
+    std::cout << "[Serie] ";
     mostrarBase();
-    std::cout << " | " << temporadas << " min" << std::endl;
+    std::cout << " | " << temporadas << " temporadas" << std::endl;
 }

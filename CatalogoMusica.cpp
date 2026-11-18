@@ -51,7 +51,7 @@ void CatalogoMusica::agregarAlbum(Album* album) {
 void CatalogoMusica::buscarPorCancion(std::string titulo) {
     int numAlbum;
     bool found = false;
-    for (int i = 0; i < albumes->vector_size(); i++) {
+    for (size_t i = 0; i < albumes->vector_size(); i++) {
         if ((*albumes)[i]->tieneCancion(titulo)) {
             found = true;
             numAlbum = i;
@@ -62,7 +62,7 @@ void CatalogoMusica::buscarPorCancion(std::string titulo) {
 void CatalogoMusica::buscarPorAlbum(std::string titulo) {
     int numAlbum;
     bool found = false;
-    for (int i = 0; i < albumes->vector_size(); i++) {
+    for (size_t i = 0; i < albumes->vector_size(); i++) {
         if ((*albumes)[i]->esTitulo(titulo)) {
             found = true;
             numAlbum = i;
@@ -73,7 +73,7 @@ void CatalogoMusica::buscarPorAlbum(std::string titulo) {
 void CatalogoMusica::buscarPorGenero(std::string genero) {
     int numAlbum;
     bool found = false;
-    for (int i = 0; i < albumes->vector_size(); i++) {
+    for (size_t i = 0; i < albumes->vector_size(); i++) {
         if ((*albumes)[i]->esDelGenero(genero)) {
             found = true;
             numAlbum = i;
@@ -84,7 +84,7 @@ void CatalogoMusica::buscarPorGenero(std::string genero) {
 void CatalogoMusica::buscarPorGrupo(std::string grupo) {
     int numAlbum;
     bool found = false;
-    for (int i = 0; i < albumes->vector_size(); i++) {
+    for (size_t i = 0; i < albumes->vector_size(); i++) {
         if ((*albumes)[i]->esDelGrupo(grupo)) {
             found = true;
             numAlbum = i;
