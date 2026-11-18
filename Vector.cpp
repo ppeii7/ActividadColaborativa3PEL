@@ -2,6 +2,9 @@
 // Created by jadel on 03/11/2026.
 //
 
+
+#ifndef ACTIVIDADCOLABORATIVA3PEL_VECTOR_CPP
+#define ACTIVIDADCOLABORATIVA3PEL_VECTOR_CPP
 #include "Vector.h"
 #include <iostream>
 
@@ -20,7 +23,7 @@ Vector<T>::~Vector() {
 }
 
 template <typename T>
-size_t Vector<T>::vector_size() {
+std::size_t Vector<T>::vector_size() {
     return space - v;
 }
 
@@ -76,3 +79,5 @@ std::string Vector<T>::toStringVector() {
     }
     return s ;
 }
+
+#endif //ACTIVIDADCOLABORATIVA3PEL_VECTOR_CPP

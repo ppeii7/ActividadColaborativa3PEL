@@ -28,5 +28,5 @@ public:
     void printDinarray();
 };
 
-
+#include "Dinarray.cpp"
 #endif //ACTIVIDADCOLABORATIVA3PEL_DINARRAY_H

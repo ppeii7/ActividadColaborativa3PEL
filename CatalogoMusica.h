@@ -6,12 +6,12 @@
 #define ACTIVIDADCOLABORATIVA3PEL_CATALOGOMUSICA_H
 #include "Album.h"
 #include "Vector.h"
-
+#include <string>
 
 class CatalogoMusica {
 
 private:
-    Vector<Album*>* albumes ;
+    Vector<Album*> albumes ;
 
 public:
     CatalogoMusica();

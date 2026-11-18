@@ -77,14 +77,15 @@ void Dinarray<T>::insert(T elemento, int posicion) {
 
 template <typename T>
 T Dinarray<T>::eliminar(int index) {
+    T aux = T();
     if (index < 0 || static_cast<std::size_t>(index) >= this->size) {
         std::cout << "ERROR ELIMINAR DINARRAY" << std::endl;
-        return T();
-    }
-    T aux = this->data[index];
-    this->size--;
-    for (std::size_t i = index; i < this->size; i++) {
-        this->data[i] = this->data[i + 1];
+    } else {
+        aux = this->data[index];
+        this->size--;
+        for (std::size_t i = index; i < this->size; i++) {
+            this->data[i] = this->data[i + 1];
+        }
     }
     return aux;
 }

@@ -16,7 +16,7 @@ void Album::agregarCancion(std::string cancion) {
 
 bool Album::tieneCancion(std::string cancion) {
     bool tiene = false;
-    for (int i = 0; i < canciones.vector_size(); i++) {
+    for (std::size_t i = 0; i < canciones.vector_size(); i++) {
         if (canciones[i] == cancion) {
             tiene = true;
         }

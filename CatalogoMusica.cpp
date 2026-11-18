@@ -1,18 +1,16 @@
-//
-// Created by Pei on 05/11/2026.
-//
-
 #include "CatalogoMusica.h"
+#include <iostream>
 
 CatalogoMusica::CatalogoMusica() {
-    albumes = new Vector <Album*>();
 }
 
 CatalogoMusica::~CatalogoMusica() {
-    albumes->~Vector();
-    albumes = nullptr;
+    for (std::size_t i = 0; i < albumes.vector_size(); i++) {
+        delete albumes[i];
+    }
 }
 
+// cargarBiblioteca() queda igual
 void CatalogoMusica::cargarBiblioteca() {
     // Álbum 1: Rock Clásico
     Album* album1 = new Album("Abbey Road", "The Beatles", "Rock");
@@ -29,7 +27,7 @@ void CatalogoMusica::cargarBiblioteca() {
     album2->agregarCancion("Billie Jean");
     this->agregarAlbum(album2);
 
-    // Álbum 3: Música Urbana / Pop
+    // Álbum 3: Música Urbana
     Album* album3 = new Album("El Madrileño", "C. Tangana", "Urbano");
     album3->agregarCancion("Demasiadas Mujeres");
     album3->agregarCancion("Tú Me Dejaste De Querer");
@@ -45,49 +43,57 @@ void CatalogoMusica::cargarBiblioteca() {
 }
 
 void CatalogoMusica::agregarAlbum(Album* album) {
-    albumes->push_back(album);
+    albumes.push_back(album);
 }
 
 void CatalogoMusica::buscarPorCancion(std::string titulo) {
-    int numAlbum;
     bool found = false;
-    for (size_t i = 0; i < albumes->vector_size(); i++) {
-        if ((*albumes)[i]->tieneCancion(titulo)) {
+    for (std::size_t i = 0; i < albumes.vector_size(); i++) {
+        if (albumes[i]->tieneCancion(titulo)) {
+            std::cout << albumes[i]->toStringAlbum() << std::endl;
             found = true;
-            numAlbum = i;
         }
+    }
+    if (!found) {
+        std::cout << "No se ha podido encontrar el album con la cancion: " << titulo << std::endl;
     }
 }
 
 void CatalogoMusica::buscarPorAlbum(std::string titulo) {
-    int numAlbum;
     bool found = false;
-    for (size_t i = 0; i < albumes->vector_size(); i++) {
-        if ((*albumes)[i]->esTitulo(titulo)) {
+    for (std::size_t i = 0; i < albumes.vector_size(); i++) {
+        if (albumes[i]->esTitulo(titulo)) {
+            std::cout << albumes[i]->toStringAlbum() << std::endl;
             found = true;
-            numAlbum = i;
         }
+    }
+    if (!found) {
+        std::cout << "No se ha podido encontrar el album: " << titulo << std::endl;
     }
 }
 
 void CatalogoMusica::buscarPorGenero(std::string genero) {
-    int numAlbum;
     bool found = false;
-    for (size_t i = 0; i < albumes->vector_size(); i++) {
-        if ((*albumes)[i]->esDelGenero(genero)) {
+    for (std::size_t i = 0; i < albumes.vector_size(); i++) {
+        if (albumes[i]->esDelGenero(genero)) {
+            std::cout << albumes[i]->toStringAlbum() << std::endl;
             found = true;
-            numAlbum = i;
         }
+    }
+    if (!found) {
+        std::cout << "No se ha podido encontrar ningun album del genero: " << genero << std::endl;
     }
 }
 
 void CatalogoMusica::buscarPorGrupo(std::string grupo) {
-    int numAlbum;
     bool found = false;
-    for (size_t i = 0; i < albumes->vector_size(); i++) {
-        if ((*albumes)[i]->esDelGrupo(grupo)) {
+    for (std::size_t i = 0; i < albumes.vector_size(); i++) {
+        if (albumes[i]->esDelGrupo(grupo)) {
+            std::cout << albumes[i]->toStringAlbum() << std::endl;
             found = true;
-            numAlbum = i;
         }
+    }
+    if (!found) {
+        std::cout << "No se ha podido encontrar ningun album del grupo: " << grupo << std::endl;
     }
 }

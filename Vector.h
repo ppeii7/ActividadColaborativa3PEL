@@ -20,6 +20,8 @@ public:
 
     Vector();
     ~Vector();
+    Vector(const Vector&) = delete;
+    Vector& operator=(const Vector&) = delete;
     std::size_t vector_size();
     std::size_t vector_capacity();
     T& begin();
@@ -28,4 +30,6 @@ public:
     T& operator[](std::size_t indice);
     std::string toStringVector();
 };
+
+#include "Vector.cpp"
 #endif //ACTIVIDADCOLABORATIVA3PEL_VECTOR_H
