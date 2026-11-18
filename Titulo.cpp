@@ -33,11 +33,17 @@ bool Titulo::alquilar() {
 }
 
 void Titulo::mostrarBase() const {
-    std::cout << titulo << " | " << genero << " | " << calidad << " | ";
+    std::cout << "| Titulo:   " << titulo << "\n";
+    std::cout << "| Genero:   " << genero << "\n";
+    std::cout << "| Calidad:  " << calidad << "\n";
     if (tarifaEstandar) {
-        std::cout << "Tarifa estandar";
+        std::cout << "| Tarifa:   Estandar (incluido en tu suscripcion)\n";
     } else {
-        std::cout << "Alquiler: " << precioAlquiler << " EUR";
+        std::cout << "| Tarifa:   Alquiler adicional - " << precioAlquiler << " EUR\n";
     }
-    std::cout << " | " << (disponible ? "Disponible" : "No disponible");
+    if (disponible) {
+        std::cout << "| Estado:   DISPONIBLE\n";
+    } else {
+        std::cout << "| Estado:   NO DISPONIBLE (alquilalo para verlo)\n";
+    }
 }

@@ -48,41 +48,47 @@ void CatalogoStreaming::cargarBiblioteca() {
 }
 
 void CatalogoStreaming::buscarPorTitulo(string titulo) {
-    bool encontrado = false;
+    int total = 0;
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
         if (titulos[i]->coincideTitulo(titulo)) {
             titulos[i]->mostrar();
-            encontrado = true;
+            total++;
         }
     }
-    if (!encontrado) {
+    if (total == 0) {
         cout << "No se ha podido encontrar el titulo: " << titulo << endl;
+    } else {
+        cout << "   >> " << total << " resultado(s) encontrado(s)" << endl;
     }
 }
 
 void CatalogoStreaming::buscarPorGenero(string genero) {
-    bool encontrado = false;
+    int total = 0;
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
         if (titulos[i]->coincideGenero(genero)) {
             titulos[i]->mostrar();
-            encontrado = true;
+            total++;
         }
     }
-    if (!encontrado) {
+    if (total == 0) {
         cout << "No se ha podido encontrar ningun titulo del genero: " << genero << endl;
+    } else {
+        cout << "   >> " << total << " resultado(s) encontrado(s)" << endl;
     }
 }
 
 void CatalogoStreaming::buscarPorCalidad(string calidad) {
-    bool encontrado = false;
+    int total = 0;
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
         if (titulos[i]->coincideCalidad(calidad)) {
             titulos[i]->mostrar();
-            encontrado = true;
+            total++;
         }
     }
-    if (!encontrado) {
+    if (total == 0) {
         cout << "No se ha podido encontrar ningun titulo con calidad: " << calidad << endl;
+    } else {
+        cout << "   >> " << total << " resultado(s) encontrado(s)" << endl;
     }
 }
 
@@ -92,10 +98,11 @@ void CatalogoStreaming::alquilar(string titulo) {
         if (titulos[i]->coincideTitulo(titulo)) {
             encontrado = true;
             if (titulos[i]->alquilar()) {
-                cout << "\"" << titulo << "\" alquilado. Ahora esta disponible." << endl;
+                cout << "   >> \"" << titulo << "\" alquilado con exito. Ya esta DISPONIBLE." << endl;
             } else {
-                cout << "\"" << titulo << "\" ya estaba disponible." << endl;
+                cout << "   >> \"" << titulo << "\" ya estaba disponible, no hace falta alquilarlo." << endl;
             }
+            titulos[i]->mostrar();
         }
     }
     if (!encontrado) {

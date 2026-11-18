@@ -38,5 +38,14 @@ bool Album::esDelGenero(const std::string g) {
 
 
 std::string Album::toStringAlbum() {
-    return "Titulo: " + titulo + "\n Grupo: " + grupo + " Genero: " + genero + "\n Canciones: " + canciones.toStringVector();
+    std::string s = "+--------------------------------------------------+\n";
+    s += "| [ALBUM] " + titulo + "\n";
+    s += "| Grupo:   " + grupo + "\n";
+    s += "| Genero:  " + genero + "\n";
+    s += "| Canciones:\n";
+    for (std::size_t i = 0; i < canciones.vector_size(); i++) {
+        s += "|   - " + canciones[i] + "\n";
+    }
+    s += "+--------------------------------------------------+";
+    return s;
 }

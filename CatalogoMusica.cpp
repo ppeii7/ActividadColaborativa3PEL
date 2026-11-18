@@ -47,53 +47,61 @@ void CatalogoMusica::agregarAlbum(Album* album) {
 }
 
 void CatalogoMusica::buscarPorCancion(std::string titulo) {
-    bool found = false;
+    int total = 0;
     for (std::size_t i = 0; i < albumes.vector_size(); i++) {
         if (albumes[i]->tieneCancion(titulo)) {
             std::cout << albumes[i]->toStringAlbum() << std::endl;
-            found = true;
+            total++;
         }
     }
-    if (!found) {
+    if (total == 0) {
         std::cout << "No se ha podido encontrar el album con la cancion: " << titulo << std::endl;
+    } else {
+        std::cout << "   >> " << total << " resultado(s) encontrado(s)" << std::endl;
     }
 }
 
 void CatalogoMusica::buscarPorAlbum(std::string titulo) {
-    bool found = false;
+    int total = 0;
     for (std::size_t i = 0; i < albumes.vector_size(); i++) {
         if (albumes[i]->esTitulo(titulo)) {
             std::cout << albumes[i]->toStringAlbum() << std::endl;
-            found = true;
+            total++;
         }
     }
-    if (!found) {
+    if (total == 0) {
         std::cout << "No se ha podido encontrar el album: " << titulo << std::endl;
+    } else {
+        std::cout << "   >> " << total << " resultado(s) encontrado(s)" << std::endl;
     }
 }
 
 void CatalogoMusica::buscarPorGenero(std::string genero) {
-    bool found = false;
+    int total = 0;
     for (std::size_t i = 0; i < albumes.vector_size(); i++) {
         if (albumes[i]->esDelGenero(genero)) {
             std::cout << albumes[i]->toStringAlbum() << std::endl;
-            found = true;
+            total++;
         }
     }
-    if (!found) {
+    if (total == 0) {
         std::cout << "No se ha podido encontrar ningun album del genero: " << genero << std::endl;
+    } else {
+        std::cout << "   >> " << total << " resultado(s) encontrado(s)" << std::endl;
     }
 }
 
 void CatalogoMusica::buscarPorGrupo(std::string grupo) {
-    bool found = false;
+    int total = 0;
     for (std::size_t i = 0; i < albumes.vector_size(); i++) {
         if (albumes[i]->esDelGrupo(grupo)) {
             std::cout << albumes[i]->toStringAlbum() << std::endl;
-            found = true;
+            total++;
         }
     }
-    if (!found) {
+    if (total == 0) {
         std::cout << "No se ha podido encontrar ningun album del grupo: " << grupo << std::endl;
+    } else {
+        std::cout << "   >> " << total << " resultado(s) encontrado(s)" << std::endl;
     }
 }

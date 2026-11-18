@@ -10,7 +10,9 @@ Pelicula::Pelicula(std::string& t, std::string& g, std::string& c, bool e, float
     : Titulo(t, g, c, e, p), duracion(d) {}
 
 void Pelicula::mostrar() const {
-    std::cout << "[Pelicula] ";
+    std::cout << "+--------------------------------------------------+\n";
+    std::cout << "| [PELICULA]\n";
     mostrarBase();
-    std::cout << " | " << duracion << " min" << std::endl;
+    std::cout << "| Duracion: " << duracion << " min\n";
+    std::cout << "+--------------------------------------------------+" << std::endl;
 }

@@ -11,7 +11,9 @@ Serie::Serie(std::string& t, std::string& g, std::string& c, bool e, float p, in
     : ::Titulo(t, g, c, e, p), temporadas(d) {}
 
 void Serie::mostrar() const {
-    std::cout << "[Serie] ";
+    std::cout << "+--------------------------------------------------+\n";
+    std::cout << "| [SERIE]\n";
     mostrarBase();
-    std::cout << " | " << temporadas << " temporadas" << std::endl;
+    std::cout << "| Temporadas: " << temporadas << "\n";
+    std::cout << "+--------------------------------------------------+" << std::endl;
 }
