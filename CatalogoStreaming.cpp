@@ -12,10 +12,15 @@ using namespace std;
 CatalogoStreaming::CatalogoStreaming() {
 }
 
-// El catalogo es dueño de los Titulo* (Dinarray solo libera su array).
 CatalogoStreaming::~CatalogoStreaming() {
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
-        delete titulos.at(i);
+        Titulo* t = titulos.at(i);
+        Pelicula* p = dynamic_cast<Pelicula*>(t);
+        if (p != nullptr) {
+            delete p;
+        } else {
+            delete dynamic_cast<Serie*>(t);
+        }
     }
 }
 
@@ -23,18 +28,32 @@ void CatalogoStreaming::agregarTitulo(Titulo* t) {
     titulos.insert(t, titulos.array_size());
 }
 
-// Orden: titulo, genero, calidad, tarifaEstandar, precioAlquiler, duracion | temporadas
 void CatalogoStreaming::cargarBiblioteca() {
-    agregarTitulo(new Pelicula("Matrix", "Ciencia ficcion", "UHD", true, 0.0f, 136));
-    agregarTitulo(new Pelicula("Inception", "Ciencia ficcion", "FHD", false, 3.99f, 148));
-    agregarTitulo(new Pelicula("El Padrino", "Drama", "FHD", true, 0.0f, 175));
-    agregarTitulo(new Pelicula("Interstellar", "Ciencia ficcion", "UHD", false, 4.50f, 169));
-    agregarTitulo(new Serie("Breaking Bad", "Drama", "UHD", true, 0.0f, 5));
-    agregarTitulo(new Serie("Dark", "Ciencia ficcion", "FHD", false, 2.99f, 3));
-    agregarTitulo(new Serie("La Casa de Papel", "Accion", "FHD", true, 0.0f, 5));
+    string titulo, genero, calidad;
+
+    titulo = "Matrix"; genero = "Ciencia ficcion"; calidad = "UHD";
+    agregarTitulo(new Pelicula(titulo, genero, calidad, true, 0.0f, 136));
+
+    titulo = "Inception"; genero = "Ciencia ficcion"; calidad = "FHD";
+    agregarTitulo(new Pelicula(titulo, genero, calidad, false, 3.99f, 148));
+
+    titulo = "El Padrino"; genero = "Drama"; calidad = "FHD";
+    agregarTitulo(new Pelicula(titulo, genero, calidad, true, 0.0f, 175));
+
+    titulo = "Interstellar"; genero = "Ciencia ficcion"; calidad = "UHD";
+    agregarTitulo(new Pelicula(titulo, genero, calidad, false, 4.50f, 169));
+
+    titulo = "Breaking Bad"; genero = "Drama"; calidad = "UHD";
+    agregarTitulo(new Serie(titulo, genero, calidad, true, 0.0f, 5));
+
+    titulo = "Dark"; genero = "Ciencia ficcion"; calidad = "FHD";
+    agregarTitulo(new Serie(titulo, genero, calidad, false, 2.99f, 3));
+
+    titulo = "La Casa de Papel"; genero = "Accion"; calidad = "FHD";
+    agregarTitulo(new Serie(titulo, genero, calidad, true, 0.0f, 5));
 }
 
-void CatalogoStreaming::buscarPorTitulo(const string& titulo) {
+void CatalogoStreaming::buscarPorTitulo(string titulo) {
     bool encontrado = false;
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
         if (titulos.at(i)->coincideTitulo(titulo)) {
@@ -47,7 +66,7 @@ void CatalogoStreaming::buscarPorTitulo(const string& titulo) {
     }
 }
 
-void CatalogoStreaming::buscarPorGenero(const string& genero) {
+void CatalogoStreaming::buscarPorGenero(string genero) {
     bool encontrado = false;
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
         if (titulos.at(i)->coincideGenero(genero)) {
@@ -60,7 +79,7 @@ void CatalogoStreaming::buscarPorGenero(const string& genero) {
     }
 }
 
-void CatalogoStreaming::buscarPorCalidad(const string& calidad) {
+void CatalogoStreaming::buscarPorCalidad(string calidad) {
     bool encontrado = false;
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
         if (titulos.at(i)->coincideCalidad(calidad)) {
@@ -73,7 +92,7 @@ void CatalogoStreaming::buscarPorCalidad(const string& calidad) {
     }
 }
 
-void CatalogoStreaming::alquilar(const string& titulo) {
+void CatalogoStreaming::alquilar(string titulo) {
     for (std::size_t i = 0; i < titulos.array_size(); i++) {
         if (titulos.at(i)->coincideTitulo(titulo)) {
             if (titulos.at(i)->alquilar()) {

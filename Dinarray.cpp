@@ -12,68 +12,68 @@
 
 template <typename T>
 Dinarray<T>::Dinarray(){
-    this->data=nullptr; // inicializo el puntero como nulo
-    this->size=0; // El indice actual es 0
-    this->capacity=0; // El array tiene tamaño 0 de momento
+    this->data=nullptr;
+    this->size=0;
+    this->capacity=0;
 }
 
 template <typename T>
 Dinarray<T>::Dinarray(std::size_t cap){
-    this->data=new T[cap]; // declaro el puntero a un array de tamaño cap
-    this->size=0; // El indice actual sera 0
-    this->capacity=cap; // El tamaño inicial del array sera cap
+    this->data=new T[cap];
+    this->size=0;
+    this->capacity=cap;
 }
 
 template <typename T>
 Dinarray<T>::~Dinarray(){
-    delete[] this->data; // Libero la memoria del array
+    delete[] this->data;
 }
 
 template <typename T>
 std::size_t Dinarray<T>::array_size(){
-    return this->size; // Devuelvo el indice actual / size
+    return this->size;
 }
 
 template <typename T>
 bool Dinarray<T>::is_empty(){
-    return this->size==0; // Devuelvo un booleano que comprueba si el indice actual es 0
+    return this->size==0;
 }
 
 template <typename T>
 T Dinarray<T>::at(int index){
-    if (index < 0 || static_cast<std::size_t>(index) >= this->size){ // Indice fuera de rango
+    if (index < 0 || static_cast<std::size_t>(index) >= this->size){
         std::cout << "ERROR AT DINARRAY" << std::endl;
-        return T(); // Devuelvo un valor por defecto (nullptr si T es un puntero)
+        return T();
     }
-    return this->data[index]; // Devuelvo el valor guardado en esa posicion
+    return this->data[index];
 }
 
 template <typename T>
 void Dinarray<T>::redimension(std::size_t newCapacity){
-    if (newCapacity < this->size){ // No se puede perder elementos ya guardados
+    if (newCapacity < this->size){
         std::cout << "ERROR REDIMENSION DINARRAY" << std::endl;
     }else{
-        T* aux = new T[newCapacity]; // Creo un puntero temporal
+        T* aux = new T[newCapacity];
         for (std::size_t i=0; i<this->size; i++){
-            aux[i]=this->data[i]; // Copio los valores del array original al temporal
+            aux[i]=this->data[i];
         }
-        delete[] this->data; // Borro el array original
-        this->data = aux; // Igualo el puntero data al temporal
+        delete[] this->data;
+        this->data = aux;
         this->capacity = newCapacity;
     }
 }
 
 template <typename T>
 void Dinarray<T>::insert(T elemento, int posicion) {
-    if (posicion >= 0 && static_cast<std::size_t>(posicion) <= this->size) { // Posicion valida (se puede insertar al final)
-        if (this->size == this->capacity) { // si el indice actual es igual al tamaño maximo
-            redimension(this->capacity*2+1); // Redimensiono la capacidad al doble
+    if (posicion >= 0 && static_cast<std::size_t>(posicion) <= this->size) {
+        if (this->size == this->capacity) {
+            redimension(this->capacity*2+1);
         }
         for (std::size_t i = this->size; i > static_cast<std::size_t>(posicion); i--) {
-            this->data[i] = this->data[i - 1]; // Muevo todos los valores una posicion
+            this->data[i] = this->data[i - 1];
         }
-        this->data[posicion] = elemento; // Guardo el elemento en la posicion dada
-        ++this->size; // Sumo 1 al indice actual
+        this->data[posicion] = elemento;
+        ++this->size;
     } else {
         std::cout << "ERROR INSERT DINARRAY" << std::endl;
     }
@@ -81,24 +81,24 @@ void Dinarray<T>::insert(T elemento, int posicion) {
 
 template <typename T>
 T Dinarray<T>::eliminar(int index) {
-    if (index < 0 || static_cast<std::size_t>(index) >= this->size) { // Indice fuera de rango
+    if (index < 0 || static_cast<std::size_t>(index) >= this->size) {
         std::cout << "ERROR ELIMINAR DINARRAY" << std::endl;
         return T();
     }
-    T aux = this->data[index]; // Guardo el valor que voy a eliminar
+    T aux = this->data[index];
     this->size--;
     for (std::size_t i = index; i < this->size; i++) {
-        this->data[i] = this->data[i + 1]; // Muevo todos los valores despues del eliminado una posicion
+        this->data[i] = this->data[i + 1];
     }
-    return aux; // Devuelvo el valor eliminado
+    return aux;
 }
 
 template<typename T>
 void Dinarray<T>::printDinarray() {
     for (std::size_t i=0; i < this->size; i++) {
-        std::cout << this->data[i] << "  "; // Imprimo todos los valores del dinarray
+        std::cout << this->data[i] << "  ";
     }
-    std::cout << std::endl; // Hago un salto de linea al final
+    std::cout << std::endl;
 }
 
 #endif //ACTIVIDADCOLABORATIVA3PEL_DINARRAY_CPP
